@@ -1,0 +1,125 @@
+<html>
+<head>
+<h1>Report</h1>
+<script type="text/JavaScript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js" ></script>
+</head>
+<body>
+<h2>Negative Growth Rate of {{comp}}</h2> 
+<img src="../static/images/{{comp}}/negative_growth_rate.png"/>
+<h2>Tweets on {{low_date}}</h2>
+<script type="text/javascript">
+$.get('../static/images/{{comp}}/low_tweets.txt', function(data) {
+var inn="<ol>";
+var head=data.split("\n");
+for(var i=0;i<head.length;i++){
+if(head[i].length<=2)
+continue;
+inn+="<li><p>"+head[i]+"</p></li>";
+}
+inn+="</ol>";
+document.getElementById('tweets1').innerHTML=inn;
+});
+</script>
+<div id="tweets1">
+</div>
+
+<h2>Positive Growth Rate of {{comp}}</h2> 
+<img src="../static/images/{{comp}}/positive_growth_rate.png"/>
+<h2>Tweets on {{high_date}}</h2>
+<script type="text/javascript">
+$.get('../static/images/{{comp}}/high_tweets.txt', function(data) {
+var inn="<ol>";
+var head=data.split("\n");
+for(var i=0;i<head.length;i++){
+if(head[i].length<=2)
+continue;
+inn+="<li><p>"+head[i]+"</p></li>";
+}
+inn+="</ol>";
+document.getElementById('tweets2').innerHTML=inn;
+});
+</script>
+<div id="tweets2">
+</div>
+
+<h2>Growth Rate Table</h2>
+<script type="text/javascript">
+$.get('../static/images/{{comp}}/growth.csv', function(data) {
+var build = '<table border="1" cellpadding="2" cellspacing="0" style="border-collapse: collapse" width="100%">\n';
+var head = data.split("\n");
+
+for(var i=0;i<head.length;i++){
+var ele=head[i].split(",");
+build += "<tr>";
+for(var j=0;j<ele.length;j++){
+if(i==0)
+build += "<th>" + ele[j] + "</th>";
+else
+build += "<td>" + ele[j] + "</td>";
+}
+build += "</tr>";
+}
+build += "</table>";
+document.getElementById('table1').innerHTML=build
+});
+</script>
+<div id="table1">
+</div>
+
+<h2>Prediction Table</h2>
+<script type="text/javascript">
+$.get('../static/images/{{comp}}/tes.csv', function(data) {
+var build = '<table border="1" cellpadding="2" cellspacing="0" style="border-collapse: collapse" width="100%">\n';
+var head = data.split("\n");
+
+for(var i=0;i<head.length;i++){
+var ele=head[i].split(",");
+build += "<tr>";
+for(var j=0;j<ele.length;j++){
+if(i==0)
+build += "<th>" + ele[j] + "</th>";
+else
+build += "<td>" + ele[j] + "</td>";
+}
+build += "</tr>";
+}
+build += "</table>";
+document.getElementById('table2').innerHTML=build
+});
+</script>
+<div id="table2">
+</div>
+
+<h2>Prediction Graph of {{comp}}</h2> 
+<img src="../static/images/{{comp}}/pred_chart.png"/>
+<h2>Suggestion</h2>
+<script type="text/javascript">
+$.get('../static/images/{{comp}}/prices.txt', function(data) {
+var res="";
+var head=data.split("\n");
+var temp1=head[0].split(" ");
+res+="<p>The minimum price in last 30 days is "+temp1[2]+"on "+temp1[0]+"</p>";
+var temp2=head[1].split(" ");
+res+="<p>The maximum price in last 30 days is "+temp2[2]+"on "+temp2[0]+"</p>";
+var temp3=head[2].split(" ");
+res+="<p>The recent price is "+temp3[2]+"on "+temp3[0]+"</p>";
+res+="<p><strong>Therefore Suggestion is:</strong></p>";
+var n1=parseFloat(temp1[2]);
+var n2=parseFloat(temp2[2]);
+var n3=parseFloat(temp3[2]);
+if(n1<n3){
+res+="<p>You can wait furthur until the price drops close to minimum price</p>";
+if(n3<n2){
+res+="<p>Or you can invest now as in last 30 days current price is less than maximum price</p>";
+}
+}else{
+res+="<p>It is best to invest now as the current price is lowest in last 30 days</p>";
+}
+document.getElementById('prices').innerHTML=res;
+});
+</script>
+<div id="prices">
+</div>
+<button onclick="window.print();return false;"><strong>Print</strong></button>
+</body>
+</html>

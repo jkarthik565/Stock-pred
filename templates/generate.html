@@ -1,0 +1,185 @@
+{% extends 'base.html' %}
+
+{% block head %}
+
+<link rel="stylesheet" href="{{url_for('static',filename='css/generate.css')}}">
+
+{% endblock %}
+
+{% block body %}
+
+
+<div class="topnav">
+    <h1>Stock Market Analysis</h1>
+    <a href="{{url_for('home')}}">Home</a>
+</div>
+<br>
+<br>
+<h1><center>Stock Data</center></h1>
+
+<div class="container">
+    
+    <div class="flip-card">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <!-- Image here -->
+          <img src="https://s3-symbol-logo.tradingview.com/alphabet--600.png" alt="Front Image">
+        </div>
+        <div class="flip-card-back">
+          <h1 id="myBtn1">NASDAQ : GOOG</h1>
+        </div>
+      </div>
+    </div>
+  
+    <div class="flip-card">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <!-- Image here -->
+          <img src="https://thumbs.dreamstime.com/b/amazon-logo-editorial-vector-illustration-market-136495269.jpg" alt="Front Image">
+        </div>
+        <div class="flip-card-back">
+          <h1 id="myBtn2">NASDAQ : AMZN</h1>
+        </div>
+      </div>
+    </div>
+  
+    <div class="flip-card">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <!-- Image here -->
+          <img src="https://s3-symbol-logo.tradingview.com/microsoft--600.png" alt="Front Image">
+        </div>
+        <div class="flip-card-back">
+          <h1 id="myBtn3">NASDAQ: MSFT</h1>
+        </div>
+      </div>
+    </div>
+  
+    <div class="flip-card">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <!-- Image here -->
+          <img src="https://w7.pngwing.com/pngs/410/675/png-transparent-apple-logo-business-corporation-apple-retail-computer-logo-thumbnail.png" alt="Front Image">
+        </div>
+        <div class="flip-card-back">
+          <h1 id="myBtn4">NASDAQ: AAPL</h1>
+        </div>
+      </div>
+    </div>
+  
+
+  <div class="flip-card">
+    <div class="flip-card-inner">
+      <div class="flip-card-front">
+        <!-- Image here -->
+        <img src="https://www.nvidia.com/content/dam/en-zz/Solutions/about-nvidia/logo-and-brand/01-nvidia-logo-horiz-500x200-2c50-p@2x.png" alt="Front Image">
+      </div>
+      <div class="flip-card-back">
+        <h1 id="myBtn5">NASDAQ: NVDA</h1>
+      </div>
+    </div>
+  </div>
+
+<div class="flip-card">
+    <div class="flip-card-inner">
+      <div class="flip-card-front">
+        <!-- Image here -->
+        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e8/Tesla_logo.png" alt="Front Image">
+      </div>
+      <div class="flip-card-back">
+        <h1 id="myBtn6">NASDAQ: TSLA</h1>
+      </div>
+    </div>
+  </div>
+  <h1> Load More</h1>
+</div>
+
+</div>
+
+  <!-- Modals -->
+  <div id="myModal1" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h1>Google (Alphabet)</h1>
+      <p>Alphabet Inc. is an American multinational technology conglomerate holding company headquartered in Mountain View, California. Alphabet is the world's, third-largest technology company by revenue and one of the world's most valuable companies. It was created through a restructuring of Google on October 2, 2015, and became the parent company of Google and several former Google subsidiaries. It is considered one of the Big Five American information technology companies, alongside Amazon, Apple, Meta, and Microsoft.</p>
+      <button value="submit" onclick="reply(this.id)" id="GOOG">Generate</button>
+    </div>
+  </div>
+  
+  <div id="myModal2" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h1>Amazon </h1>
+      <p>Amazon.com, Inc.,[1] doing business as Amazon (/ˈæməzɒn/, AM-ə-zon; UK also /ˈæməzən/, AM-ə-zən), is an American multinational technology company, engaged in e-commerce, cloud computing, online advertising, digital streaming, and artificial intelligence.[5] It is considered one of the Big Five American technology companies; the other four are Alphabet (parent company of Google), Apple, Meta (parent company of Facebook), and Microsoft.
+      </p>
+      <button value="submit" onclick="reply(this.id)" id="AMZN">Generate</button>
+    </div>
+  </div>
+  
+  <div id="myModal3" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h1>Microsoft Corporation</h1>
+      <p>Microsoft Corporation is an American multinational corporation and technology company headquartered in Redmond, Washington.[2] Microsoft's best-known software products are the Windows line of operating systems, the Microsoft 365 suite of productivity applications, and the Edge web browser. Its flagship hardware products are the Xbox video game consoles and the Microsoft Surface lineup of touchscreen personal computers. Microsoft ranked No. 14 in the 2022 Fortune 500 rankings of the largest United States corporations by total revenue;[3] and it was the world's largest software maker by revenue in 2022 according to Forbes Global 2000. It is considered one of the Big Five American information technology companies, alongside Alphabet (parent company of Google), Amazon, Apple, and Meta (parent company of Facebook).</p>
+      <button value="submit" onclick="reply(this.id)" id="MSFT">Generate</button>
+    </div>
+  </div>
+  
+  <div id="myModal4" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h1>Apple Inc</h1>
+      <p>Apple Inc. (formerly Apple Computer, Inc.) is an American multinational corporation and technology company headquartered in Cupertino, California, in Silicon Valley. It designs, develops, and sells consumer electronics, computer software, and online services. Devices include the iPhone, iPad, Mac, Apple Watch, Vision Pro, and Apple TV; operating systems include iOS, iPadOS, and macOS; and software applications and services include iTunes, iCloud, Apple Music, and Apple TV+.
+      </p>
+      <button value="submit" onclick="reply(this.id)" id="AAPL">Generate</button>
+    </div>
+  </div>
+
+  <div id="myModal5" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h1>Nvidia Corporation</h1>
+      <p>Nvidia Corporation[a][b]is an American multinational corporation and technology company headquartered in Santa Clara, California, and incorporated in Delaware.[5] It is a software and fabless company which designs and supplies graphics processing units (GPUs), application programming interfaces (APIs) for data science and high-performance computing as well as system on a chip units (SoCs) for the mobile computing and automotive market. Nvidia is also a dominant supplier of artificial intelligence (AI) hardware and software.[6][7][8]
+      </p>
+      <button value="submit" onclick="reply(this.id)" id="NVDA">Generate</button>
+    </div>
+  </div>
+
+  <div id="myModal6" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h1>Tesla Inc.</h1>
+      <p>Tesla was incorporated in July 2003 by Martin Eberhard and Marc Tarpenning as Tesla Motors. The company's name is a tribute to inventor and electrical engineer Nikola Tesla. In February 2004, Elon Musk joined as the company's largest shareholder and in 2008 he was named CEO. In 2008, the company began production of its first car model, the Roadster sports car, followed by the Model S sedan in 2012, the Model X SUV in 2015, the Model 3 sedan in 2017, the Model Y crossover in 2020, the Tesla Semi truck in 2022 and the Cybertruck pickup truck in 2023. The Model 3 is the all-time bestselling plug-in electric car worldwide, and in June 2021 became the first electric car to sell 1 million units globally.[6] In 2023, the Model Y was the best-selling vehicle, of any kind, globally.[3]
+      </p>
+      <button value="submit" onclick="reply(this.id)" id="TSLA">Generate</button>
+    </div>
+  </div>
+
+<script>
+    var modals = document.querySelectorAll(".modal");
+    var btns = document.querySelectorAll("[id^='myBtn']");
+    var spans = document.querySelectorAll(".close");
+    function reply(id){
+	window.location.href = "report/"+id;
+	}
+    btns.forEach((btn, index) => {
+      btn.onclick = function() {
+        modals[index].style.display = "block";
+      };
+    });
+    
+    spans.forEach((span, index) => {
+      span.onclick = function() {
+        modals[index].style.display = "none";
+      };
+    });
+    
+    window.onclick = function(event) {
+      modals.forEach((modal) => {
+        if (event.target == modal) {
+          modal.style.display = "none";
+        }
+      });
+    };
+    </script>
+    {% endblock %}

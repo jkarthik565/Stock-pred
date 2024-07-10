@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<link rel="stylesheet" href="{{url_for('static',filename='css/main.css')}}">
+
+{% endblock %}
+
+{% block body %}
+
+<div class="topnav">
+    <h1>Stock Market Analysis</h1>
+    <a href="{{url_for('home')}}">Home</a>
+    <a href="{{url_for('generate')}}">Generate</a>
+</div>
+<br>
+<br>
+<p>
+    <div class="bx">
+        A stock market, equity market, or share market is the aggregation of buyers and sellers of stocks (also called shares), which represent ownership claims on businesses; these may include securities listed on a public stock exchange as well as stock that is only traded privately, such as shares of private companies that are sold to investors through equity crowdfunding platforms. Investments are usually made with an investment strategy in mind.
+        The total market capitalization of all publicly traded stocks worldwide rose from US$2.5 trillion in 1980 to US$93.7 trillion at the end of 2020.[1]
+
+As of 2016, there are 60 stock exchanges in the world. Of these, there are 16 exchanges with a market capitalization of $1 trillion or more, and they account for 87% of global market capitalization. Apart from the Australian Securities Exchange, these 16 exchanges are all in North America, Europe, or Asia.[2]
+
+By country, the largest stock markets as of January 2022 are in the United States of America (about 59.9%), followed by Japan (about 6.2%) and United Kingdom (about 3.9%).[3]
+
+
+    </div>
+</p>
+
+<a href=".venv\templates\generate.html"></a><input type="button" value="Generate" onclick="generate"></input>
+
+{% endblock %}
